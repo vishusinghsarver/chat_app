@@ -1,0 +1,9 @@
+<%#= turbo_stream_from "messages" %>
+<div class="message-wr">
+  <%= render partial: 'messages' %>
+  <%= button_to "Send Message", user_path(params[:format]),
+                             method: :get %>
+  </div>
+
+
+

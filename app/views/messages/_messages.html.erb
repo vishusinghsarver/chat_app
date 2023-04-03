@@ -1,0 +1,10 @@
+<%= turbo_stream_from "messages" %>
+<div id="messages" class="messages">
+  <div id="messages-table" class="messages-table">
+    <% if @messages.any? %>
+        
+          <%= render @messages %>
+
+    <% end %>
+  </div>
+</div>

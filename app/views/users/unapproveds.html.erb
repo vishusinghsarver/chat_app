@@ -1,0 +1,9 @@
+<div> <%= link_to user.email, user %> </div>
+
+        <%# @messages.each do |msg| %>
+            <% if msg = Message.where("user_id = ? AND reciver_id = ?",current_user.id,params[:format]) %>
+                <%= render msg %>
+            <% elsif msg = Message.where("user_id = ? AND reciver_id = ?",params[:format],current_user.id) %>
+                <%= render msg %>
+            <% end %>
+        <% #end %>
