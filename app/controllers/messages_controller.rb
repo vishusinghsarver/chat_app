@@ -20,10 +20,11 @@ class MessagesController < ApplicationController
     private
 
     def get_messages
-     
-      @messages = Message.all
       
       @message  = current_user.messages.create(content: params[:content],reciver_id:params[:reciver_id])
-    
+      recived=Message.where("user_id=? AND reciver_id=?",params[:format],current_user.id)
+      sender=Message.where("user_id=? AND reciver_id=?",current_user.id,params[:format])
+      @messages = (recived + sender).sort
+      
     end
 end
