@@ -75,8 +75,6 @@ h2 {
     margin-top: 65px
 }
 .logo img{
-
-    /* margin-right: 24px; */
     width: 80px;
     /* padding: 4px; */
     /* padding-right: 15px; */
@@ -84,11 +82,7 @@ h2 {
 .right{
     position: absolute;
      right :24px;
-     top: 25px;
-    display: inline-block;
-
-    color: yellow;
-     
+     top: 25px;  
 }
 .welcome{
     margin-top:165px;
@@ -102,3 +96,28 @@ margin-left: 25px;
     padding-left: 0px;
     list-style: none;
   }
+
+chat-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  max-width: 60%;
+  
+}
+
+.sent {
+  background-color: lightblue;
+  float: right;
+  clear: both;
+}
+
+.received {
+  background-color: lightgray;
+  float: left;
+  clear: both;
+}

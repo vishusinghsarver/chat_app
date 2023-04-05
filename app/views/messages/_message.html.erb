@@ -1,8 +1,21 @@
 <div class="message">
-  <div class="message-user">
-    <%= message.user.name %>:
-  </div>
-  <div class="message-content">
-    <%= message.content %>
-  </div>
+  <% if "#{message.receiver_id}" == params[:format] %>
+    <div class="message sent">
+      <div class="message-user">
+        <%= message.user.name %>:
+      </div>
+      <div class="message-content">
+        <%= message.content %>
+      </div>
+    </div>
+  <% else %>
+    <div class="message received">
+      <div class="message-user">
+        <%= message.user.name %>:
+      </div>
+      <div class="message-content">
+        <%= message.content %>
+      </div>
+    </div>
+  <% end %>
 </div>

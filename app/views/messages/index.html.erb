@@ -1,9 +1,28 @@
-<%#= turbo_stream_from "messages" %>
-<div class="message-wr">
-  <%= render partial: 'messages' %>
-  <%= button_to "Send Message", user_path(params[:format]),
-                             method: :get %>
+<% if user_signed_in? && current_user.role == "user" %> 
+  <div class="form-scroll">
+    <div> Welcome <%= current_user.email %> </div> 
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+      <h1><%= link_to('Back',root_path) %></h1>
+      <%= turbo_stream_from "messages" %>
+
+      <div class="message-wr">
+        <%= render partial: '/messages/messages'%>
+      </div>
+    
+      <div class="bottom-msg">
+	      <%= form_with(model: @message  ,url:  messages_create_path(params[:format]))  do |f| %>
+	          <div class="field">
+	            <%= text_area_tag :content, '',  placeholder: "Send Message", size: "115" %>
+	          </div>
+
+	          <div class="field" ,id="msg">
+	            <%= f.hidden_field :receiver_id, value: params[:id] %>
+	          </div>
+
+	          <div class ="snd"> 
+	            <%= f.submit "Send Message" %>
+	          </div>
+	   	  <% end %>
+	   </div>
   </div>
-
-
-
+<% end %>
