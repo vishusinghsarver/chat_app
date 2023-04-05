@@ -4,12 +4,11 @@ class MessagesController < ApplicationController
 
   def index
   end
-  
+
   def create
       @message  = current_user.messages.create(content: params[:content],receiver_id:params[:format])
       if @message.save
           if params[:action]=="create"
-            
             redirect_to "/users/id.#{current_user.messages.last.receiver_id}?",allow_other_host: true
           end
       end
@@ -18,7 +17,7 @@ class MessagesController < ApplicationController
   private
   def get_messages
     receiver=Message.where("user_id=? AND receiver_id=?",params[:format],current_user.id)
-      sender=Message.where("user_id=? AND receiver_id=?",current_user.id,params[:format])
-      @messages = (receiver + sender).sort
+    sender=Message.where("user_id=? AND receiver_id=?",current_user.id,params[:format])
+    @messages = (receiver + sender).sort
   end
 end
