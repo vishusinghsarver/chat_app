@@ -4,6 +4,8 @@
         <th>Name</th>
         <th>Approved</th>
     </tr>
+    <% @users=User.where(role:"user") %>
+    <%= turbo_stream_from @users %>
     <% @users.each do |x| %>
             <tr>
                 <td><%= x.name %></td>

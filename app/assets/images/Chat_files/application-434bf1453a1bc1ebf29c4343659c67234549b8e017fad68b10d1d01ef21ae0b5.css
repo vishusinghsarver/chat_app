@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
 */
 
  body{
@@ -61,7 +61,7 @@ h2 {
     border: 3px solid red;
     /* width: 10px;
     height: 12px; */
-    /* background-image: url(current_user.image) ; */
+    /* background-image: url(/current_user.image) ; */
     background-color: rgb(46, 177, 177);
     border-radius: 45px;
     display: inline-block;

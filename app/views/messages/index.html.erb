@@ -1,8 +1,10 @@
 <% if user_signed_in? && current_user.role == "user" %> 
   <div class="form-scroll">
-    <div> Welcome <%= current_user.email %> </div> 
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-      <h1><%= link_to('Back',root_path) %></h1>
+    <div class="back-fixed">
+    	<div > Welcome <%= current_user.email %> </div> 
+      	<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+      	<h1><%= link_to('Back',root_path) %></h1>
+    </div> 
       <%= turbo_stream_from "messages" %>
 
       <div class="message-wr">
